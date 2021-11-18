@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.4+commit.c7e474f2"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -20,6 +20,31 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_voter",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_caller",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "enum Proposal.Vote",
+						"name": "_vote",
+						"type": "uint8"
+					}
+				],
+				"name": "NewVote",
+				"type": "event"
 			},
 			{
 				"inputs": [],
@@ -180,7 +205,7 @@
 		"compilationTarget": {
 			"contracts/Proposal.sol": "Proposal"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -209,17 +234,17 @@
 			]
 		},
 		"contracts/Proposal.sol": {
-			"keccak256": "0x2c1f0bd222daa2a7115632db684a5b9d9b4eb0aa339b6708ce8df30448c42beb",
+			"keccak256": "0x4700c7bcd9d68d59da1e5d29f674105fc33e22b051737a70c603fbd82c38ff1d",
 			"urls": [
-				"bzz-raw://a7d6146b3f7c4ef870b6a93964f5fd1f41d7d7a173238ec1ef781efa582882cd",
-				"dweb:/ipfs/QmSTMruKyLNXUPJFzb7zARn1LPu5hiacvw4nF6Hbw4jrPD"
+				"bzz-raw://38e4dfb7fd8c6066f4954ddfba1eac48fdb1d1494d50b23cc54c96886ac867cd",
+				"dweb:/ipfs/QmZLXWJbUd64abFjcjQXvojdrXzvEUT8LEstDFNLhAV8Ry"
 			]
 		},
 		"contracts/capitol.sol": {
-			"keccak256": "0x33a1e1e21c93022b5b0f887dddd45dc70565e285c291618ba327b4e882724617",
+			"keccak256": "0x5dc4c420047b3acf93ed806fdafefb4c688923b86dbab080a7630adc320ba510",
 			"urls": [
-				"bzz-raw://46948bfcbe576ef0ea18b446f6553c72364f55f115fcc0a53828815a93695949",
-				"dweb:/ipfs/QmdRSkRGZvyAJk7KXT8PtyBXzViyZyMxszwwhDdLPvC14n"
+				"bzz-raw://b4cbfc4e29e1eff3e173287ab2124ad9c9c7fbb25839464b55563cff1d7ea272",
+				"dweb:/ipfs/QmPL5zmHnmBW44fMBnNFXLq46A5rSp51dDmuAAJ5mmeVgz"
 			]
 		}
 	},

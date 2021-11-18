@@ -8,7 +8,7 @@ contract Proposal {
         _;
     }
     
-        modifier isExpired {
+    modifier isExpired {
         require(block.timestamp >= expiresAt, "This proposal is in progress.");
         _;
     }
@@ -16,6 +16,8 @@ contract Proposal {
     
     enum Vote{ABSTAIN, YES, NO}
     enum Result{APPROVE, DENIED, DRAW}
+    
+    event NewVote(address indexed _voter, address indexed _caller, Vote indexed _vote);
 
     Capitol public capitol;
     bytes32 public paper;
@@ -27,13 +29,17 @@ contract Proposal {
         capitol = Capitol(_capitolAddress);
         paper = _paper;
         expiresAt = block.timestamp + capitol.proposalDurationSeconds();
+        capitol.register(address(this), msg.sender, _paper);
     }
 
     function vote(address _voter, Vote _vote) public isNotExpired returns (uint, uint) {
         require(votes[_voter] == Vote.ABSTAIN, "You cannot change your vote.");
         require(_voter == msg.sender || capitol.delegations(_voter) == msg.sender, "You must be delegated to vote.");
-        votes[msg.sender] = _vote;
+        votes[_voter] = _vote;
         votesCount[_vote] = votesCount[_vote] + 1;
+        
+        emit NewVote(_voter, msg.sender, _vote);
+        
         return (votesCount[Vote.YES], votesCount[Vote.NO]);
     }
 

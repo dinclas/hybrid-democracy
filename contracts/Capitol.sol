@@ -6,6 +6,8 @@ contract Capitol is Ownable {
     mapping (address=>address) public delegations;
     uint public proposalDurationSeconds;
     
+    event ProposalCreated(address indexed _proposalAddress, address indexed _owner, bytes32 indexed _paper);
+    
     constructor(uint _proposalDurationSeconds) {
         proposalDurationSeconds = _proposalDurationSeconds;
     }
@@ -17,5 +19,9 @@ contract Capitol is Ownable {
     
     function removeDelegation() public {
         delete delegations[msg.sender];
+    }
+    
+    function register(address _proposal, address _owner, bytes32 _paper) public {
+        emit ProposalCreated(_proposal, _owner, _paper);
     }
 }

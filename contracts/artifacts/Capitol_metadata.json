@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.4+commit.c7e474f2"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -33,6 +33,31 @@
 					}
 				],
 				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_proposalAddress",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "_paper",
+						"type": "bytes32"
+					}
+				],
+				"name": "ProposalCreated",
 				"type": "event"
 			},
 			{
@@ -94,6 +119,29 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_proposal",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_paper",
+						"type": "bytes32"
+					}
+				],
+				"name": "register",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "removeDelegation",
 				"outputs": [],
@@ -146,7 +194,7 @@
 		"compilationTarget": {
 			"contracts/Capitol.sol": "Capitol"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "london",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -175,10 +223,10 @@
 			]
 		},
 		"contracts/Capitol.sol": {
-			"keccak256": "0x33a1e1e21c93022b5b0f887dddd45dc70565e285c291618ba327b4e882724617",
+			"keccak256": "0x5dc4c420047b3acf93ed806fdafefb4c688923b86dbab080a7630adc320ba510",
 			"urls": [
-				"bzz-raw://46948bfcbe576ef0ea18b446f6553c72364f55f115fcc0a53828815a93695949",
-				"dweb:/ipfs/QmdRSkRGZvyAJk7KXT8PtyBXzViyZyMxszwwhDdLPvC14n"
+				"bzz-raw://b4cbfc4e29e1eff3e173287ab2124ad9c9c7fbb25839464b55563cff1d7ea272",
+				"dweb:/ipfs/QmPL5zmHnmBW44fMBnNFXLq46A5rSp51dDmuAAJ5mmeVgz"
 			]
 		}
 	},
